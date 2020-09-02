@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+
+    @if (!User.Identity.IsAuthenticated)
+    {
+        <form action="https://localhost:44356/api/Auth" method="get" id="loginForm">
+            <button type="submit" id="loginButton" class="btn btn-primary" >Login with Github</button>
+        </form>
+    }
+    else
+    {
+        <h2>Authentifiziert - Sie haben nun Zugriff auf die Produktliste</h2>
+        <div class="container" id="productList">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Beschreibung</th>
+                        <th scope="col">Produkt Typ</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                   
+                </tbody>
+            </table>
+        </div>    
+    }
+</div>
